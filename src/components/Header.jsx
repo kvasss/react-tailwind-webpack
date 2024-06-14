@@ -17,9 +17,9 @@ const Search = () => (
   />
 );
 
-const NavItem = ({ children, className, link }) => (
-  <a href={link} className={`self-stretch my-auto ${className}`}>
-    {children}
+const NavItem = ({ item }) => (
+  <a href={item.link} className={`self-stretch my-auto ${item.className} hover:text-fuchsia-500`}>
+    {item.text}
   </a>
 );
 
@@ -28,11 +28,8 @@ const NavMenu = ({ navItems }) => (
     {navItems.map((item, index) => (
       <NavItem 
         key={index} 
-        className={item.className}
-        link={item.link}
-      >
-        {item.text}
-      </NavItem>
+        item={item}
+      />
     ))}
   </nav>
 );
